@@ -1,8 +1,9 @@
-# Hospital Management System - Version 1.1
-# Features: Patient management and appointment management
+# Hospital Management System - Version 2.0
+# Features: Patient management, appointments, doctors and billing
 
 patients = []
 appointments = []
+doctors = []
 
 def add_patient(patient_id, name, age, disease):
     patient = {
@@ -41,3 +42,26 @@ def view_appointments():
             "Doctor:", appointment["doctor"],
             "Date:", appointment["date"]
         )
+
+def add_doctor(doctor_id, name, specialization):
+    doctor = {
+        "id": doctor_id,
+        "name": name,
+        "specialization": specialization
+    }
+    doctors.append(doctor)
+    print("Doctor", name, "added successfully")
+
+def view_doctors():
+    print("Doctor Records:")
+    for doctor in doctors:
+        print(
+            "ID:", doctor["id"],
+            "Name:", doctor["name"],
+            "Specialization:", doctor["specialization"]
+        )
+
+def calculate_bill(consultation_fee, medicine_cost, room_charges):
+    total = consultation_fee + medicine_cost + room_charges
+    print("Total Bill = Rs.", total)
+    return total
